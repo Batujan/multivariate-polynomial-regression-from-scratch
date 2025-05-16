@@ -3,27 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-'''''
-Some notes on the syntax used between the lines 27-29:
-* .columns: returns an Index object containing the 
-column names of a DataFrame.
-*.values: converts a DataFrame or Series into a NumPy 
-array, stripping labels and leaving only the raw data.
-*.reshape(-1, 1): reshapes a 1D array into a 2D column 
-vector; -1 tells NumPy to infer the number of rows 
-automatically based on the array's total size.
-
-What that specified snippet does is to generalize the 
-application of this model to larger datasets with 
-different number of features. 
-'''''
-
 # Load the Wine Quality dataset
 # Adjust the path if needed
 data = pd.read_csv("california_housing_clean.csv")
 
 # Prepare feature matrix and target vector
-feature_columns = data.columns[:-1]  # all columns except 'quality'
+feature_columns = data.columns[:-1]  # all columns except 'the last one'
 X = data[feature_columns].values
 y = data['MedHouseVal'].values.reshape(-1, 1)
 
